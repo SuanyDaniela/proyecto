@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proyecto Informática - INTAE</title>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('fondo.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: rgba(0, 87, 146, 0.9);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    .btn {
+      background: #0074c1;
+      color: white;
+      padding: 12px 25px;
+      margin: 10px 5px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      background: #005792;
+    }
+
+    .section {
+      display: none;
+      text-align: center;
+      animation: subir 1.5s ease-in-out;
+    }
+
+    .active {
+      display: block;
+    }
+
+    #perfil img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid #005792;
+      margin-bottom: 20px;
+    }
+
+    #contenido img,
+    #carrera img,
+    #informacion img {
+      width: 350px;
+      height: auto;
+      border-radius: 10px;
+      margin: 20px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    @keyframes subir {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    footer {
+      background: #005792;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: auto;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Proyecto de Informática - INTAE</h1>
+  </header>
+
+  <div class="container">
+    <div id="bienvenida" class="active section">
+      <h1>Bienvenid@s</h1>
+      <p>Te brindaré información sobre esta hermosa carrera.</p>
+      <button class="btn" onclick="mostrarPerfil()"><i data-lucide="arrow-right-circle"></i>Presiona si estas list@</button>
+    </div>
+
+    <div id="perfil" class="section">
+      <img src="mi foto.jpg" alt="Mi Foto" />
+      <h2>Primeramente me presento</h2>
+      <p>Mi nombre es <strong>Suany Daniela Bardales Campos</strong></p>
+      <p>Soy estudiante de 12vo de la carrera de informática,<br> próxima graduada de INTAE 2025.</p>
+      <p>Para mí es un honor brindarles información de la bella carrera que curso.</p>
+      <button class="btn" onclick="volverBienvenida()"><i data-lucide="arrow-left"></i>atrás</button>
+      <button class="btn" onclick="mostrarContenido()">Continuamos<i data-lucide="arrow-right"></i></button>
+    </div>
+
+    <div id="contenido" class="section">
+      <h2>¿Qué es el Bachillerato Técnico Profesional <br> en Informática para ti?</h2>
+      <img src="informatica1.jpg" alt="Informática" />
+      <button class="btn" onclick="volverPerfil()"><i data-lucide="arrow-left"></i>atrás</button>
+      <button class="btn" onclick="mostrarCarrera()">el bachillerato es:<i data-lucide="arrow-right"></i></button>
+    </div>
+
+    <div id="carrera" class="section">
+      <h2>El Bachillerato Técnico Profesional en Informática es:</h2>
+      <img src="informatica2.jpg" alt="Informática" />
+      <p>Conjunto de conocimientos, habilidades, actitudes y comportamientos técnicos<br> que caracterizan al egresado de la carrera.</p>
+      <p>Para entender más claramente la carrera,<br> veamos primero ¿Qué es informática?</p>
+      <button class="btn" onclick="volverContenido()"><i data-lucide="arrow-left"></i>atrás</button>
+      <button class="btn" onclick="mostrarInformacion()">la informática es:<i data-lucide="arrow-right"></i></button>
+    </div>
+
+    <div id="informacion" class="section">
+      <h2>¿Qué es la Informática?</h2>
+      <img src="informatica3.jpg" alt="Concepto de Informática" />
+      <p>Es la ciencia que estudia sistemas computacionales para procesar información automática.<br> Incluye programación, redes, bases de datos, IA y más.</p>
+      <p>También se enfoca en el tratamiento digital de datos con dispositivos electrónicos y software.</p>
+      <button class="btn" onclick="volverCarrera()"><i data-lucide="arrow-left"></i>atrás</button>
+      <button class="btn" onclick="mostrarDecision()">Elije Informática:<i data-lucide="thumbs-up"></i></button>
+    </div>
+
+    <div id="decision" class="section">
+      <h2>¿Por qué elegir Informática?</h2>
+      <p>Elegir un bachillerato en informática es una decisión estratégica que ofrece múltiples beneficios:<br>
+<strong>Adquisición de habilidades digitales:</strong><br> Permite a los estudiantes adquirir conocimientos y habilidades necesarias para desenvolverse en la sociedad digital actual. <br>
+<strong>Base para estudios superiores:</strong><br> Es fundamental si se desea estudiar ingeniería en informática, ya que proporciona una sólida formación en matemáticas y ciencias. <br>
+<strong>Oportunidades laborales:</strong> <br> La informática es un campo en constante crecimiento, lo que se traduce en una alta demanda de profesionales capacitados. <br>
+<strong>En resumen,</strong><br> optar por un bachillerato en informática no solo prepara a los estudiantes para el futuro académico, sino que también les abre puertas en el mercado laboral.<br> y en INTAE desarrollarás habilidades prácticas como programación, redes, mantenimiento, diseño web y más.</p>
+
+      <button class="btn" onclick="volverCarrera()"><i data-lucide="arrow-left"></i>atrás</button>
+      <button class="btn" onclick="mostrarMasInformacion()">Información:<i data-lucide="info"></i></button>
+    </div>
+
+    <div id="masinformacion" class="section">
+      <h2>Información Detallada de la Carrera</h2>
+      <p>Esta carrera te prepara con conocimientos sólidos en áreas clave para el mundo digital.</p>
+      <p>También fomenta habilidades blandas como el pensamiento lógico y el trabajo en equipo.</p>
+      <p>Esta hermosa carrera tiene <strong>la duración de 3 años</strong></p>
+      <button class="btn" onclick="volverDecision()"><i data-lucide="arrow-left"></i>atrás</button>
+      <button class="btn" onclick="mostrarCompetencias()">Sus competencias<i data-lucide="list-checks"></i></button>
+    </div>
+
+<div id="competencias" class="section">
+  <h2>Competencias de la Carrera</h2>
+<p> • El estudiante será capaz de diseñar presentaciones, bases de datos, diseño de publicaciones, navegadores de Internet, servicios de mensajería electrónica, tráfico, respaldo y manejo de archivos de forma local y en red, procesadores de texto, hojas de cálculo, etc.</p>
+  <p>• Manejo de software y hardware.<br>
+     • Programación en distintos lenguajes.<br>
+     • Diseño y administración de redes.<br>
+     • Soporte técnico y mantenimiento.<br>
+     • Desarrollo web, base de datos, y más.</p>
+  <button class="btn" onclick="volverMasInformacion()"><i data-lucide="arrow-left"></i>atrás</button>
+  <button class="btn" onclick="mostrarCampoLaboral()">Campo laboral<i data-lucide="briefcase"></i></button>
+</div>
+
+<div id="campolaboral" class="section">
+  <h2>Campo laboral El Bachiller Técnico en Informática se podrá desempeñar en:</h2>
+<p> • Centros o departamentos de informática de cualquier institución o empresa.<br>
+ • Creación de medianas empresas dedicadas a asesorías en sistemas de información, mantenimiento correctivo y preventivo de equipo tecnológico, instalación de redes locales y capacitación sobre tecnología.<br>
+ • Talleres o empresas de servicios técnicos en computación. Centros de capacitación en computación.<br></p>
+
+<br><p>El egresado de este bachillerato podrá demostrar en el campo de trabajo profesionalismo, con una cultura y práctica de capacitación constante según los últimos avances tecnológicos.</p><br>
+
+  <p>Podrás trabajar como:<br>
+     • Técnico en informática.<br>
+     • Desarrollador de software.<br>
+     • Soporte técnico.<br>
+     • Administrador de redes.<br>
+     • Freelance o emprendedor digital.</p>
+
+  <button class="btn" onclick="volverCompetencias()"><i data-lucide="arrow-left"></i>atrás</button>
+  <button class="btn" onclick="mostrarPlanEstudio()">Plan de estudio<i data-lucide="book-open-text"></i></button>
+</div>
+
+<div id="planestudio" class="section">
+  <h2>Plan de Estudio</h2>
+<br>
+  <h3>Décimo Grado</h3>
+  <ul>
+    <li>Matemática</li>
+    <li>Español</li>
+    <li>Fisica</li>
+    <li>Química</li>
+    <li>Biologia</li>
+    <li>Inglés</li>
+    <li>Sociología</li>
+    <li>Informática</li>
+    <li>Fundamentos de la Psicología</li>
+    <li>Historia de Honduras</li>
+    <li>Educación Física y Deportes</li>
+  </ul><br>
+
+  <h3>Undécimo Grado</h3>
+  <ul>
+    <li>Matemática Aplicada</li>
+    <li>Español II</li>
+    <li>Educación y Apreciación Artística</li>
+    <li>Filosofía</li>
+    <li>Física Aplicada</li>
+    <li>Inglés Técnico</li>
+    <li>Programación I</li>
+    <li>Ofimática</li>
+    <li>Análisis y Diseño de Sistemas</li>
+    <li>Informática Aplicada</li>
+    <li>Legislación Aplicada a la Informática</li>
+  </ul><br>
+
+  <h3>Duodécimo Grado</h3>
+  <ul>
+    <li>Desarrollo Web</li>
+    <li>Gestión Empresarial Orientada</li>
+    <li>Mantenimiento y Reparación</li>
+    <li>Producciones Digitales</li>
+    <li>Programación II</li>
+    <li>Redes Informáticas</li>
+      </ul>
+  <button class="btn" onclick="volverCampoLaboral()"><i data-lucide="arrow-left"></i>atrás</button>
+  <button class="btn" onclick="mostrarDocentes()">Docentes<i data-lucide="users"></i></button>
+</div>
+
+
+<div id="docentes" class="section">
+  <h2>Docentes de Duodécimo</h2>
+  <p><strong>• Lic. Rene Lagos<br>
+          • Lic. Norbi Alvarado</strong></p>
+  <button class="btn" onclick="volverPlanEstudio()"><i data-lucide="arrow-left"></i>atrás</button>
+  <button class="btn" onclick="mostrarCoordinador()">Coordinador<i data-lucide="user-check"></i></button>
+    </div>
+
+<div id="coordinador" class="section">
+  <h2>Coordinador del Área de Informática - INTAE</h2>
+  <p><strong>Nombre:</strong> Lic. Jarel Alonso Reyes</p>
+  <p><strong>Teléfono:</strong> +504 8800-2448</p>
+  <button class="btn" onclick="volverDocentes()"><i data-lucide="arrow-left"></i>atrás</button>
+  <button class="btn" onclick="mostrarRecorrido()">Mi recorrido<i data-lucide="heart"></i></button>
+</div>
+
+<div id="recorrido" class="section">
+ <h2>Mi recorrido</h2>
+<p>Amo mi carrera y estas fotos son el reflejo</p>
+
+<div style="text-align: center; margin-top: 20px;">
+  <img src="recorrido.jpg" alt="Foto 1" style="width: 200px; height: auto; margin: 10px; border-radius: 8px;">
+</div>
+  <button class="btn" onclick="volverCoordinador()"><i data-lucide="arrow-left"></i>atrás</button>
+  <button class="btn" onclick="mostrarRecomendacion()">Mi recomendación<i data-lucide="thumbs-up"></i></button>
+</div>
+
+<div id="recomendacion" class="section">
+  <h2>Mi recomendación</h2>
+  <p>No lo pienses más y elige Informática</p><br>
+  <button class="btn" onclick="volverRecorrido()"><i data-lucide="arrow-left"></i>atrás</button>
+  <button class="btn" onclick="mostrarGracias()">Gracias<i data-lucide="heart"></i></button>
+</div>
+
+<div id="gracias" class="section">
+  <h2>Gracias por llegar hasta aquí</h2><br>
+  <p>Espero esta información sea de gran ayuda.<br>
+  Recuerda: <strong>100% Informática</strong><br>
+  Orgullo de ser estudiante de <strong>INTAE</strong>.</p><br>
+ <p>Creado por <strong>Suany Daniela Bardales Campos</strong> <br> Alumna de 12vo de Informática</p> <br>
+ <p> Dios les Bendiga!!</p><br>
+  <button class="btn" onclick="volverRecomendacion()"><i data-lucide="arrow-left"></i>atrás</button>
+</div>
+  </div>
+
+  <footer>
+    <p>© Bachillerato Técnico Profesional en Informática - INTAE 2025</p>
+  </footer>
+
+  <script>
+    function ocultarTodas() {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    }
+
+    function mostrarPerfil() {
+      ocultarTodas();
+      document.getElementById("perfil").classList.add("active");
+    }
+
+    function mostrarContenido() {
+      ocultarTodas();
+      document.getElementById("contenido").classList.add("active");
+    }
+
+    function mostrarCarrera() {
+      ocultarTodas();
+      document.getElementById("carrera").classList.add("active");
+    }
+
+    function mostrarInformacion() {
+      ocultarTodas();
+      document.getElementById("informacion").classList.add("active");
+    }
+
+    function mostrarDecision() {
+      ocultarTodas();
+      document.getElementById("decision").classList.add("active");
+    }
+
+    function mostrarMasInformacion() {
+      ocultarTodas();
+      document.getElementById("masinformacion").classList.add("active");
+    }
+
+    function volverPerfil() {
+      ocultarTodas();
+      document.getElementById("perfil").classList.add("active");
+    }
+
+    function volverContenido() {
+      ocultarTodas();
+      document.getElementById("contenido").classList.add("active");
+    }
+
+    function volverCarrera() {
+      ocultarTodas();
+      document.getElementById("carrera").classList.add("active");
+    }
+
+    function volverBienvenida() {
+      ocultarTodas();
+      document.getElementById("bienvenida").classList.add("active");
+    }
+
+    function volverDecision() {
+      ocultarTodas();
+      document.getElementById("decision").classList.add("active");
+    }
+function mostrarCompetencias() {
+  ocultarTodas();
+  document.getElementById("competencias").classList.add("active");
+}
+
+function volverMasInformacion() {
+  ocultarTodas();
+  document.getElementById("masinformacion").classList.add("active");
+}
+
+function mostrarCampoLaboral() {
+  ocultarTodas();
+  document.getElementById("campolaboral").classList.add("active");
+}
+
+function volverCompetencias() {
+  ocultarTodas();
+  document.getElementById("competencias").classList.add("active");
+}
+
+function mostrarPlanEstudio() {
+  ocultarTodas();
+  document.getElementById("planestudio").classList.add("active");
+}
+
+function volverCampoLaboral() {
+  ocultarTodas();
+  document.getElementById("campolaboral").classList.add("active");
+}
+
+function mostrarDocentes() {
+  ocultarTodas();
+  document.getElementById("docentes").classList.add("active");
+}
+
+function volverPlanEstudio() {
+  ocultarTodas();
+  document.getElementById("planestudio").classList.add("active");
+}
+function mostrarCoordinador() {
+  ocultarTodas();
+  document.getElementById("coordinador").classList.add("active");
+}
+
+function volverDocentes() {
+  ocultarTodas();
+  document.getElementById("docentes").classList.add("active");
+}
+
+function mostrarRecorrido() {
+  ocultarTodas();
+  document.getElementById("recorrido").classList.add("active");
+}
+
+function volverCoordinador() {
+  ocultarTodas();
+  document.getElementById("coordinador").classList.add("active");
+}
+function mostrarRecomendacion() {
+  ocultarTodas();
+  document.getElementById("recomendacion").classList.add("active");
+}
+
+function volverRecorrido() {
+  ocultarTodas();
+  document.getElementById("recorrido").classList.add("active");
+}
+function mostrarGracias() {
+  ocultarTodas();
+  document.getElementById("gracias").classList.add("active");
+}
+
+function volverRecomendacion() {
+  ocultarTodas();
+  document.getElementById("recomendacion").classList.add("active");
+}
+    lucide.createIcons();
+  </script>
+
+</body>
+</html>
